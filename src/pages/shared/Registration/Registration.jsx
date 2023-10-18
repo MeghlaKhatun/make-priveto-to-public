@@ -84,7 +84,7 @@ const Registration = () => {
 
 
                     {
-                        verifyPassword && <p className="text-xl font-semibold text-red-700 font-bold mb-6">{verifyPassword}</p>
+                        verifyPassword && <p className="text-xl text-red-700 font-bold mb-6">{verifyPassword}</p>
                     }
 
                     <h2 className="text-xl md:text-2xl lg:text-3xl text-white text-center font-bold  ">Please Registration</h2>
