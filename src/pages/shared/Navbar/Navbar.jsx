@@ -6,7 +6,7 @@ import { AuthContext } from "../../../Routes/Provider/AuthProvider";
 
 const Navbar = () => {
 
-    const { user,LogOut } = useContext(AuthContext)
+    const { user, LogOut } = useContext(AuthContext)
 
 
     const navLinks = <>
@@ -17,41 +17,65 @@ const Navbar = () => {
     </>
 
     //logOut
-    const handleSignOut=()=>{
+    const handleSignOut = () => {
         LogOut()
-        .then()
-        .catch
+            .then()
+            .catch
     }
 
 
     return (
-        <div className="bg-gradient-to-r from-black to-sky-500">
-            <div className="flex max-w-7xl mx-auto py-10 justify-between items-center">
 
-                {/* navbar logo */}
+        <div className="bg-gradient-to-r from-black to-gray-700">
+            <div className="navbar py-4 md:py-6 lg:py-12 max-w-7xl mx-auto px-4 md:px-10 lg:px-0">
+                <div className="navbar-start">
+                    <nav className="dropdown">
 
-                <div className="flex gap-2 items-center">
-                    <div className="w-[100px]">
-                        <img className="" src="https://i.ibb.co/8g5vK1p/logo-2.png" alt="" />
+                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-3xl text-white font-extrabold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        </label>
+
+
+
+
+
+
+
+
+
+
+                        <ul tabIndex={0} className="menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            {navLinks}
+                            
+                        </ul>
+
+
+
+
+
+
+
+
+                    </nav>
+                    <div className="flex gap-2 items-center">
+                        <div className="w-[90px]">
+                            <img className="" src="https://i.ibb.co/8g5vK1p/logo-2.png" alt="" />
+                        </div>
+                        <div>
+                            <a href="#" className="flex items-end text-[18px] md:text-xl  text-white lg:text-3xl  italic md:font-bold lg:font-extrabold  "><span className="text-2xl md:text-4xl lg:text-5xl md:font-bold lg:font-extrabold italic ">E</span>lectronics </a>
+                        </div>
                     </div>
-                    <div>
-                        <a href="#" className="flex items-end text-[18px] md:text-xl  text-white lg:text-3xl  italic md:font-bold lg:font-extrabold  "><span className="text-2xl md:text-4xl lg:text-5xl md:font-bold lg:font-extrabold italic ">E</span>lectronics </a>
-                    </div>
+
                 </div>
 
 
-                {/* navbar menu */}
-                <nav>
-                    <ul className="flex gap-4 text-white font-medium text-[18px]">
+                <nav className="navbar-center hidden lg:flex">
+                    <ul className=" menu-horizontal flex gap-6 text-white font-medium text-[18px]">
                         {navLinks}
+                        
                     </ul>
                 </nav>
-
-
-
-                {/* Navbar end */}
-
-                <div className="flex items-center">
+                <div className="navbar-end">
 
                     <div className="flex flex-col-reverse justify-center lg:flex-row mr-2 lg:gap-4 items-center">
 
@@ -73,21 +97,23 @@ const Navbar = () => {
                     {
                         user ?
                             <div >
-                                <Link onClick={handleSignOut} className="py-2 px-4 bg-red-700 text-white font-medium md:font-semibold text-[14px] md:text-[16px] lg:text-[18px] rounded-lg">Log Out</Link>
+                                <Link onClick={handleSignOut} className="py-2 px-4  bg-red-700 text-white font-medium md:font-semibold text-[14px] md:text-[16px] lg:text-[18px] rounded-lg">Sign Out</Link>
                             </div>
                             :
                             <div>
 
-                                <Link to="/login" className="py-2 px-4 bg-red-700 text-white font-medium md:font-semibold text-[14px] md:text-[16px] lg:text-[18px] rounded-lg">Login</Link>
+                                <Link to="/login" className="py-2 px-4  bg-red-700 text-white font-medium md:font-semibold text-[14px] md:text-[16px] lg:text-[18px] rounded-lg">Login</Link>
                             </div>
                     }
 
 
                 </div>
-
-
             </div>
+
         </div>
+
+
+
     );
 };
 
