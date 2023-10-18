@@ -5,36 +5,62 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Routes/Provider/AuthProvider";
 import Swal from 'sweetalert2'
 
+
 const LogIn = () => {
 
-    const {LogIn}=useContext(AuthContext)
+    const { LogIn, googleLogIn } = useContext(AuthContext)
 
-    const handleLogIn=e=>{
+    const handleLogIn = e => {
         e.preventDefault();
-        const form=e.target;
-        const email=form.email.value;
-        const password=form.password.value;
-        console.log(email,password);
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
 
         //LogInUser
-        LogIn(email,password)
-        .then(result=>{
+        LogIn(email, password)
+            .then(result => {
+                console.log(result.user);
+                Swal.fire(
+                    'Log In!',
+                    'LogIn Successful',
+                    'success'
+                )
+
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops sorry...',
+                    text: (`${error.message}`),
+                })
+            })
+    }
+
+    //Google Login
+    const handleGoogleLogIn=()=>{
+
+        googleLogIn()
+        .then(result => {
             console.log(result.user);
             Swal.fire(
-                'Log In!',
-                'LogIn Successful',
+                'LogIn!',
+                'Google LogIn Successful',
                 'success'
-              )
-        
+            )
         })
-        .catch(error=>{
+        .catch(error => {
+            console.error(error);
             Swal.fire({
                 icon: 'error',
                 title: 'Oops sorry...',
                 text: (`${error.message}`),
-              })
+            })
         })
+
     }
+    
+
 
     return (
         <div className="w-full h-full pb-20 bg-no-repeat bg-cover" style={{ backgroundImage: 'url(https://i.ibb.co/QrYwvH8/4884273-11zon.jpg)' }}>
@@ -70,9 +96,9 @@ const LogIn = () => {
                     </form>
                     <p className="text-[16px] mt-4 text-white font-semibold text-center">Do not Have An Account? please <Link className="text-orange-800 hover:underline font-bold" to="/registration">Registration</Link> </p>
 
-                        {/* GoogleLogIn */}
+                    {/* GoogleLogIn */}
                     <div className="flex justify-center mt-6">
-                        <button className="py-2 md:py-4 px-10 bg-transparent  text-white  border-2 rounded-lg font-bold flex items-center gap-3"><FcGoogle className="text-2xl"></FcGoogle> Login with Google</button>
+                        <button onClick={handleGoogleLogIn} className="py-2 md:py-4 px-10 bg-transparent  text-white  border-2 rounded-lg font-bold flex items-center gap-3"><FcGoogle className="text-2xl"></FcGoogle> Login with Google</button>
                     </div>
 
                 </div>
