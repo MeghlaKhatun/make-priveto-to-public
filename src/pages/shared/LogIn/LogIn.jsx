@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { FcGoogle } from 'react-icons/fc';
 import { useContext } from "react";
@@ -6,9 +6,15 @@ import { AuthContext } from "../../../Routes/Provider/AuthProvider";
 import Swal from 'sweetalert2'
 
 
+
 const LogIn = () => {
 
-    const { LogIn, googleLogIn } = useContext(AuthContext)
+    const { LogIn, googleLogIn } = useContext(AuthContext);
+
+
+    const location=useLocation()
+    console.log(location);
+    const navigate=useNavigate()
 
     const handleLogIn = e => {
         e.preventDefault();
@@ -26,6 +32,7 @@ const LogIn = () => {
                     'LogIn Successful',
                     'success'
                 )
+                navigate(location.state ? location.state : "/")
 
             })
             .catch(error => {
@@ -48,6 +55,7 @@ const LogIn = () => {
                 'Google LogIn Successful',
                 'success'
             )
+            navigate(location.state ? location.state : "/")
         })
         .catch(error => {
             console.error(error);

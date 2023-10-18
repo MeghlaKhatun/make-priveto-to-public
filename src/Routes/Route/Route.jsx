@@ -4,11 +4,14 @@ import Home from "../../pages/Home";
 import Registration from "../../pages/shared/Registration/Registration";
 import LogIn from "../../pages/shared/LogIn/LogIn";
 import AddProduct from "../../pages/shared/AddProduct/AddProduct";
+import ErrorElement from "../../pages/ErrorElement/ErrorElement";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element:<Root></Root>,
+      errorElement:<ErrorElement></ErrorElement>,
       children:[
         {
             path:"/",
@@ -25,7 +28,7 @@ const router = createBrowserRouter([
         },
         {
           path:"/addProduct",
-          element:<AddProduct></AddProduct>,
+          element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>,
         }
        
       ]
