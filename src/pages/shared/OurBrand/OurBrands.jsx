@@ -6,7 +6,7 @@ function OurBrands({ brand }) {
   const { brand_name, img } = brand;
 
   return (
-    <Link to="/">
+    <Link to={`/brandProducts/${brand_name}`}>
     <div className="card bg-base-100 shadow-2xl hover:shadow-gray-700  transition">
       <div className='h-[300px]'>
         <img className='px-6' src={img} alt="Shoes" />

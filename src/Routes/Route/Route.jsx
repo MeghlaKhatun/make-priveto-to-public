@@ -6,6 +6,7 @@ import LogIn from "../../pages/shared/LogIn/LogIn";
 import AddProduct from "../../pages/shared/AddProduct/AddProduct";
 import ErrorElement from "../../pages/ErrorElement/ErrorElement";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import BrandsProducts from "../../pages/shared/BrandProducts/BrandsProducts";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,14 @@ const router = createBrowserRouter([
         {
           path:"/addProduct",
           element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>,
+        },
+        {
+          path:"/brandProducts/:brandName",
+          element:<BrandsProducts></BrandsProducts>,
+          loader:({params})=>fetch(`http://localhost:5000/products/${params.brandName}`)
         }
+        
+  
        
       ]
     },
