@@ -3,13 +3,55 @@ import Navbar from "../Navbar/Navbar";
 import { useState } from "react";
 
 const AddProduct = () => {
-    const [value,setValue]=useState(0)
+    const [value,setValue]=useState(0);
+
+
+
+    const handleAddProduct=event=>{
+        event.preventDefault();
+        const form=event.target;
+        const name=form.name.value;
+        const brand_name=form.brand_name.value;
+        const price=form.price.value;
+        const photo=form.photo.value;
+        const type=form.type.value;
+        const description=form.description.value;
+        const ratting=form.ratting.value;
+        const addProduct={name,brand_name,price,photo,type,description,ratting}
+        console.log(addProduct)
+
+
+        //product add server side
+        fetch("http://localhost:5000/products",{
+            method:"POST",
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify(addProduct)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+        })
+
+    }
+
+
+
+
+
+
+
+
+
+
     return (
         <div className="bg-gradient-to-r from-black to-gray-700 py-10">
             <Navbar></Navbar>
-            <div className="max-w-7xl mx-auto ">
+            <div className="max-w-7xl mx-auto mt-10 ">
+                <h2 className="text-center font-bold text-white text-2xl">Add Product</h2>
 
-                <form className="px-10 md:px-0 md:w-4/5 lg:w-1/2 mx-auto ">
+                <form onSubmit={handleAddProduct} className="px-10 md:px-0 md:w-4/5 lg:w-1/2 mx-auto  ">
                     <div className="form-control pt-2">
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[18px]">Product Name</span>
@@ -21,7 +63,7 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[18px]">Select Brand Name</span>
                         </label>
-                        <select className="input input-bordered" >
+                        <select name="brand_name" className="input input-bordered" >
                             <option value="Apple">Apple</option>
                             <option value="samsung">Samsung</option>
                             <option value="sony">Sony</option>
@@ -50,11 +92,15 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[18px]">Select Product Type</span>
                         </label>
-                        <select className="input input-bordered" >
+                        <select name="type" className="input input-bordered" >
                             <option value="phone">Phone</option>
-                            <option value="computer">Computer</option>
                             <option value="headphone">HeadPhone</option>
                             <option value="television">Television</option>
+                            <option value="laptop">Laptop</option>
+                            <option value="refrigerator">Refrigerator</option>
+                            <option value="watch">Watch</option>
+                            <option value="tablet">Tablet</option>
+                            <option value="camera">Camera</option>
                         </select>
 
                     </div>
@@ -72,7 +118,7 @@ const AddProduct = () => {
                         </label>
                     
                         <Rating className="input input-bordered flex items-center"
-                            name="simple-controlled"
+                            name="ratting"
                             value={value}
                             onChange={(event, newValue) => {
                                 setValue(newValue);
@@ -83,7 +129,8 @@ const AddProduct = () => {
 
 
                     <div className="form-control mt-6">
-                        <button className="py-2 md:py-4 border-2 text-white  rounded-lg font-bold">Add Product</button>
+                        <input className="py-2 md:py-4 border-2 text-[#331A15] bg-[#D2B48C]  rounded-lg font-bold" type="submit" value="Add Product" />
+                        {/* <button className="py-2 md:py-4 border-2 text-[#331A15] bg-[#D2B48C]  rounded-lg font-bold">Add Product</button> */}
                     </div>
                 </form>
 
