@@ -1,12 +1,40 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import Swal from 'sweetalert2'
 
 const Details = () => {
 
     const productDetails = useLoaderData();
     const { id } = useParams();
     const product = productDetails.find(product => product._id == id);
-    const { photo, brand_name, description, price, type } = product
+    const { photo, brand_name, description, price, type } = product;
+
+    const addCart={photo,brand_name,description,price,type};
+    const handleAddToCart=()=>{
+
+    
+    fetch("http://localhost:5000/carts",{
+        method:"POST",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(addCart)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data);
+        if(data.insertedId){
+            Swal.fire(
+                'Stored!',
+                'Data Stored Successful',
+                'success'
+            )
+        }
+
+        
+    })
+}
+ 
 
     return (
         <div>
@@ -26,7 +54,7 @@ const Details = () => {
 
                         <p className="py-4 font-semibold text-white">{description}</p>
 
-                        <button className="py-3 px-5 bg-red-900 rounded-lg text-white font-semibold">Add to cart</button>
+                        <button onClick={handleAddToCart} className="py-3 px-5 bg-red-900 rounded-lg text-white font-semibold">Add to cart</button>
                     </div>
                 </div>
             </div>

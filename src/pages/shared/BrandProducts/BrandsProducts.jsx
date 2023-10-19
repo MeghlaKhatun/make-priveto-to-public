@@ -20,8 +20,7 @@ const BrandsProducts = () => {
                 console.log(err);
             })
     }, []);
-    // const brand=useLoaderData();
-    //    const {brand_name}=brand;
+    
 
     return (
         <div className="bg-gradient-to-r from-black to-gray-700 py-20">

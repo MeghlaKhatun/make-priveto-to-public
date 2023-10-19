@@ -47,7 +47,7 @@ function BrandProduct({ product }) {
 }
 
 BrandProduct.propTypes = {
-    product: PropTypes.object
+    product: PropTypes.object,
 }
 
 export default BrandProduct

@@ -8,6 +8,7 @@ import ErrorElement from "../../pages/ErrorElement/ErrorElement";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import BrandsProducts from "../../pages/shared/BrandProducts/BrandsProducts";
 import Details from "../../pages/shared/Details/Details";
+import MyCarts from "../../pages/shared/MyCarts/MyCarts";
 
 const router = createBrowserRouter([
     {
@@ -40,7 +41,12 @@ const router = createBrowserRouter([
           path:"/details/:id",
           element:<PrivateRoute><Details></Details></PrivateRoute>,
           loader:()=>fetch("http://localhost:5000/products")
-        }
+        },
+        {
+          path:"/myCart",
+          element:<PrivateRoute><MyCarts></MyCarts></PrivateRoute>,
+          loader:()=>fetch("http://localhost:5000/carts")
+        },
         
   
        
