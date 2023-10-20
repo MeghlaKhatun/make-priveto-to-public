@@ -1,20 +1,26 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Swal from 'sweetalert2'
+import { useContext } from "react";
+import { AuthContext } from "../../../Routes/Provider/AuthProvider";
 
 const Details = () => {
+
+    const {user}=useContext(AuthContext)
+    const email=user.email;
 
     const productDetails = useLoaderData();
     const { id } = useParams();
     const product = productDetails.find(product => product._id == id);
     const { photo, brand_name, description, price, type } = product;
 
-    const addCart={photo,brand_name,description,price,type};
+    const addCart={photo,brand_name,description,price,type,id,email};
+
     const handleAddToCart=()=>{
 
     
     fetch("http://localhost:5000/carts",{
-        method:"POST",
+        method:"PUT",
         headers:{
             "content-type":"application/json"
         },
@@ -23,12 +29,21 @@ const Details = () => {
     .then(res=>res.json())
     .then(data=>{
         console.log(data);
-        if(data.insertedId){
+        if(data.upsertedCount >0 ){
             Swal.fire(
                 'Stored!',
                 'Data Stored Successful',
                 'success'
             )
+            
+        }
+        else{
+            Swal.fire(
+                'Stored!',
+                'Data already Successful',
+                'success'
+            )
+
         }
 
         

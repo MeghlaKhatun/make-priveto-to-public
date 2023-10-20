@@ -1,62 +1,10 @@
-
 import PropTypes from 'prop-types'
-import { useState } from 'react';
 import {FaTrashAlt } from "react-icons/fa";
-import { useLoaderData } from 'react-router-dom';
-import Swal from 'sweetalert2'
 
+function MyCart({ cart ,handleDelete}) {
 
-function MyCart({ cart }) {
+    const {id, photo, brand_name, description,type } = cart;
 
-
-    const {_id, photo, brand_name, description,type } = cart;
-
-    
-    const loadedCards = useLoaderData();
-    const [cards, setCards] = useState(loadedCards);
-
-    const handleDelete=(id)=>{
-        console.log(id)
-
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-             fetch(`http://localhost:5000/carts/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.deletedCount > 0) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                      )
-                    // remove carts
-                    const remainingCards=cards?.filter(card=>card._id !== id);
-                    setCards(remainingCards);
-                    // window.location.reload();
-                   
-                }
-               
-            })
-            }
-          })
-
-        
-
-    }
-
- 
-    
 
     return (
         <div className=''>
@@ -71,7 +19,7 @@ function MyCart({ cart }) {
 
                    
                     <div className="card-actions">
-                        <button onClick={()=>handleDelete(_id)} className="py-3 px-5 bg-red-900 text-white font-semibold rounded-lg flex items-center gap-2">Delete<FaTrashAlt></FaTrashAlt> </button>
+                        <button onClick={()=>handleDelete(id)} className="py-3 px-5 bg-red-900 text-white font-semibold rounded-lg flex items-center gap-2">Delete<FaTrashAlt></FaTrashAlt> </button>
                     </div>
 
                 </div>
@@ -82,6 +30,7 @@ function MyCart({ cart }) {
 
 MyCart.propTypes = {
     cart: PropTypes.object,
+    handleDelete:PropTypes.func
 }
 
 export default MyCart
