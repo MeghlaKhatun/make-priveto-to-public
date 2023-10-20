@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Routes/Provider/AuthProvider";
@@ -11,6 +11,7 @@ const Registration = () => {
 
     const { createUser } = useContext(AuthContext);
     const [verifyPassword, setVerifyPassword] = useState("")
+    const navigate=useNavigate()
 
     const handleRegistration = e => {
         e.preventDefault();
@@ -50,6 +51,8 @@ const Registration = () => {
                     'Registration Successful',
                     'success'
                   );
+
+                  navigate("/")
 
                   //updateProfile
                   updateProfile(result.user,{

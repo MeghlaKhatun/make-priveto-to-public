@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function BrandProduct({ product }) {
 
-    const {_id, photo, name, price, type, ratting } = product;
+    const { _id, photo, name, price, type, ratting } = product;
 
     return (
         <div>
@@ -17,7 +17,7 @@ function BrandProduct({ product }) {
                     <div className="card-body ">
                         <h2 className="text-black font-bold text-2xl">{name}</h2>
                         <p className='font-semibold text-[18px]'>Type: {type}</p>
-                        <p className='text-[17px] font-semibold '>Price: {price} Tk</p>
+                        <p className='text-[17px] font-semibold '>Price: ${price}</p>
                         <p>
                             <Rating className="flex items-center"
 
@@ -34,7 +34,9 @@ function BrandProduct({ product }) {
                                 </Link>
                             </div>
                             <div className="card-actions ">
-                                <button className="py-2 px-4 rounded-lg bg-red-900 text-white ">Update</button>
+                                <Link to={`/updateProduct/${_id}`}>
+                                    <button className="py-2 px-4 rounded-lg bg-red-900 text-white ">Update</button>
+                                </Link>
                             </div>
                         </div>
 

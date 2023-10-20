@@ -3,6 +3,7 @@ import Banner from "./shared/Banner/Banner";
 import Navbar from "./shared/Navbar/Navbar";
 import OurBrands from "./shared/OurBrand/OurBrands";
 import Footer from "./shared/Footer/Footer";
+import AllProduct from "./shared/AllProduct/AllProduct";
 
 const Home = () => {
     const brands=useLoaderData()
@@ -21,6 +22,8 @@ const Home = () => {
                    }
                 </div>
             </div>
+
+            <AllProduct></AllProduct>
 
             <Footer></Footer>
             

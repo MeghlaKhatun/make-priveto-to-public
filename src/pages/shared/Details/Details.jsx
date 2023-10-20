@@ -48,7 +48,7 @@ const Details = () => {
                         <h1 className="text-3xl font-bold ">Brand: {brand_name}</h1>
                         <div className="flex gap-10 items-center  pt-6">
                             <h1 className="text-2xl  font-semibold text-white">{type}</h1>
-                            <p className=" font-semibold py-1 px-4  bg-gray-500 rounded-full text-white"> {price}Tk</p>
+                            <p className=" font-semibold py-1 px-4  bg-gray-500 rounded-full text-white"> ${price}</p>
 
                         </div>
 

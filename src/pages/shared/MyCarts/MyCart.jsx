@@ -9,7 +9,7 @@ import Swal from 'sweetalert2'
 function MyCart({ cart }) {
 
 
-    const { photo, brand_name, description } = cart;
+    const {_id, photo, brand_name, description,type } = cart;
 
     
     const loadedCards = useLoaderData();
@@ -18,11 +18,22 @@ function MyCart({ cart }) {
     const handleDelete=(id)=>{
         console.log(id)
 
-        fetch(`http://localhost:5000/carts/${id}`, {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+             fetch(`http://localhost:5000/carts/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 if (data.deletedCount > 0) {
                     Swal.fire(
                         'Deleted!',
@@ -37,6 +48,10 @@ function MyCart({ cart }) {
                 }
                
             })
+            }
+          })
+
+        
 
     }
 
@@ -45,17 +60,18 @@ function MyCart({ cart }) {
 
     return (
         <div className=''>
-            <div className="card w-96 h-[500px] bg-base-100 shadow-xl">
+            <div className="card  h-[500px] bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={photo} alt="" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center ">
-                    <h2 className="card-title font-bold text-2xl">{brand_name}</h2>
-                    <p className='font-medium text-center'>{description}</p>
+                    <h2 className="card-title font-bold text-2xl">{brand_name}</h2>             
+                    <h2 className="card-title font-semibold text-[18px]">Type: {type}</h2>     
+                    <p className='font-medium text-[15px] text-center'>{description}</p>
 
                    
                     <div className="card-actions">
-                        <button onClick={()=>handleDelete(cart._id)} className="py-3 px-5 bg-red-900 text-white font-semibold rounded-lg flex items-center gap-2">Delete<FaTrashAlt></FaTrashAlt> </button>
+                        <button onClick={()=>handleDelete(_id)} className="py-3 px-5 bg-red-900 text-white font-semibold rounded-lg flex items-center gap-2">Delete<FaTrashAlt></FaTrashAlt> </button>
                     </div>
 
                 </div>

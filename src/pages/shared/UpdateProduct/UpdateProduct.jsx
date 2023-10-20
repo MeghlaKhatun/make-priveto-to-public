@@ -1,13 +1,16 @@
-import { Rating} from "@mui/material";
+import { Rating } from "@mui/material";
+import { useLoaderData } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-import { useState } from "react";
-
-const AddProduct = () => {
-    const [value,setValue]=useState(0);
 
 
+const UpdateProduct = () => {
 
-    const handleAddProduct=event=>{
+
+    const update = useLoaderData();
+    const {_id,name,photo, brand_name,type,ratting,price,description } = update;
+
+
+    const handleUpdateProduct=event=>{
         event.preventDefault();
         const form=event.target;
         const name=form.name.value;
@@ -17,25 +20,25 @@ const AddProduct = () => {
         const type=form.type.value;
         const description=form.description.value;
         const ratting=form.ratting.value;
-        const addProduct={name,brand_name,price,photo,type,description,ratting}
-        console.log(addProduct)
+        const updatedProduct={name,brand_name,price,photo,type,description,ratting}
+        console.log(updatedProduct)
 
 
         //product add server side
-        fetch("http://localhost:5000/products",{
-            method:"POST",
+        fetch(`http://localhost:5000/updateProducts/${_id}`,{
+            method:"PUT",
             headers:{
                 "content-type":"application/json"
             },
-            body:JSON.stringify(addProduct)
+            body:JSON.stringify(updatedProduct)
         })
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
+            
         })
 
     }
-
 
 
 
@@ -45,19 +48,19 @@ const AddProduct = () => {
             <div className="max-w-7xl mx-auto mt-10 ">
                 <h2 className="text-center font-semibold md:font-bold text-white text-xl md:text-2xl">Add Product</h2>
 
-                <form onSubmit={handleAddProduct} className="px-10 md:px-0 md:w-4/5 lg:w-1/2 mx-auto  ">
+                <form onSubmit={handleUpdateProduct} className="px-10 md:px-0 md:w-4/5 lg:w-1/2 mx-auto  ">
                     <div className="form-control pt-2">
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Product Name</span>
                         </label>
-                        <input type="text" name="name" placeholder="Your Name" className="input input-bordered" required />
+                        <input type="text" name="name" defaultValue={name} placeholder="Your Name" className="input input-bordered" required />
                     </div>
 
                     <div className="form-control pt-2">
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Select Brand Name</span>
                         </label>
-                        <select name="brand_name" className="input input-bordered" >
+                        <select name="brand_name" defaultValue={brand_name} className="input input-bordered" >
                             <option value="apple">Apple</option>
                             <option value="samsung">Samsung</option>
                             <option value="sony">Sony</option>
@@ -72,21 +75,21 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Price</span>
                         </label>
-                        <input type="text" name="price" placeholder="Price" className="input input-bordered" required />
+                        <input type="text" name="price" defaultValue={price} placeholder="Price" className="input input-bordered" required />
                     </div>
 
                     <div className="form-control pt-2">
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Photo URL</span>
                         </label>
-                        <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered" required />
+                        <input type="text" name="photo" defaultValue={photo} placeholder="Photo URL" className="input input-bordered" required />
                     </div>
 
                     <div className="form-control pt-2">
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Select Product Type</span>
                         </label>
-                        <select name="type" className="input input-bordered" >
+                        <select name="type" defaultValue={type} className="input input-bordered" >
                             <option value="phone">Phone</option>
                             <option value="headphone">HeadPhone</option>
                             <option value="television">Television</option>
@@ -103,21 +106,19 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Short Description</span>
                         </label>
-                        <textarea name="description" id="" cols="30" rows="5" className="border-2 rounded-lg"></textarea>
+                        <textarea name="description" defaultValue={description} id="" cols="30" rows="5" className="border-2 rounded-lg"></textarea>
                     </div>
 
                     <div className="form-control pt-2">
-                    <label className="label">
+                        <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Ratting</span>
                         </label>
-                    
+
                         <Rating className="input input-bordered flex items-center"
                             name="ratting"
-                            value={value}
-                            onChange={(event, newValue) => {
-                                setValue(newValue);
-                            }}
-                        />                       
+                            value={ratting}
+                            
+                        />
                     </div>
 
 
@@ -129,8 +130,8 @@ const AddProduct = () => {
                 </form>
 
             </div>
-        </div>
-    );
+            </div>
+            );
 };
 
-export default AddProduct;
+            export default UpdateProduct;
