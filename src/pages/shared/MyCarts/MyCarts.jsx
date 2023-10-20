@@ -1,7 +1,6 @@
-// import { useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import MyCart from "./MyCart";
 import Navbar from "../Navbar/Navbar";
-import { useLoaderData } from "react-router-dom";
 
 const MyCarts = () => {
 

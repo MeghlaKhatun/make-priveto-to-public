@@ -46,7 +46,7 @@ const UpdateProduct = () => {
         <div className="bg-gradient-to-r from-black to-gray-700 py-10">
             <Navbar></Navbar>
             <div className="max-w-7xl mx-auto mt-10 ">
-                <h2 className="text-center font-semibold md:font-bold text-white text-xl md:text-2xl">Add Product</h2>
+                <h2 className="text-center font-semibold md:font-bold text-white text-xl md:text-2xl">Update Product</h2>
 
                 <form onSubmit={handleUpdateProduct} className="px-10 md:px-0 md:w-4/5 lg:w-1/2 mx-auto  ">
                     <div className="form-control pt-2">
@@ -124,7 +124,7 @@ const UpdateProduct = () => {
 
 
                     <div className="form-control mt-6">
-                        <input className="py-2 md:py-4 border-2 text-[#331A15] bg-[#D2B48C]  rounded-lg font-bold" type="submit" value="Add Product" />
+                        <input className="py-2 md:py-4 border-2 text-[#331A15] bg-[#D2B48C]  rounded-lg font-bold" type="submit" value="Update Product" />
                         {/* <button className="py-2 md:py-4 border-2 text-[#331A15] bg-[#D2B48C]  rounded-lg font-bold">Add Product</button> */}
                     </div>
                 </form>
