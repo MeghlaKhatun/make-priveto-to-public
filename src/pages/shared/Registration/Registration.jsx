@@ -77,7 +77,7 @@ const Registration = () => {
 
 
     return (
-        <div className="w-full h-full pb-20 bg-no-repeat bg-cover" style={{ backgroundImage: 'url(https://i.ibb.co/pR6yV3j/banner.jpg)' }}>
+        <div className="w-full h-full pb-20 bg-no-repeat bg-cover" style={{ backgroundImage: 'url(https://i.ibb.co/618Y6qj/registration-1.jpg)' }}>
             <Navbar></Navbar>
 
             <div className="max-w-7xl mx-auto py-16 md:py-20 lg:py-40 px-10">

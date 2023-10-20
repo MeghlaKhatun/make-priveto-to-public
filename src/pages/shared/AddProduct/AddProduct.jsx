@@ -1,6 +1,7 @@
 import { Rating} from "@mui/material";
 import Navbar from "../Navbar/Navbar";
 import { useState } from "react";
+import Swal from 'sweetalert2'
 
 const AddProduct = () => {
     const [value,setValue]=useState(0);
@@ -31,7 +32,15 @@ const AddProduct = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire(
+                    'Successful!',
+                    'Data stored successful!',
+                    'success'
+                  )
+            }
+
         })
 
     }
