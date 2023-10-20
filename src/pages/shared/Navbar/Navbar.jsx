@@ -42,8 +42,8 @@ const Navbar = () => {
 
 
                     </nav>
-                    <div className="flex gap-2 items-center">
-                        <div className="w-[90px]">
+                    <div className="flex  items-center">
+                        <div className=" w-[40px] md:w-[60px] lg:w-[90px]">
                             <img className="" src="https://i.ibb.co/8g5vK1p/logo-2.png" alt="" />
                         </div>
                         <div>
