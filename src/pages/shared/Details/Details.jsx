@@ -19,7 +19,7 @@ const Details = () => {
     const handleAddToCart=()=>{
 
     
-    fetch("http://localhost:5000/carts",{
+    fetch("https://brand-shop-server-side-3276vx317-meghlas-projects.vercel.app/carts",{
         method:"PUT",
         headers:{
             "content-type":"application/json"
@@ -39,9 +39,9 @@ const Details = () => {
         }
         else{
             Swal.fire(
-                'Stored!',
-                'Data already Successful',
-                'success'
+                'Opps!',
+                'Data already added',
+                'error'
             )
 
         }

@@ -12,7 +12,7 @@ const AllProduct = () => {
             <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 px-8 lg:px-0 gap-6">
 
                 <div>
-                    <div className="h-96 w-[350px] carousel carousel-vertical rounded-box">
+                    <div className="h-96  carousel carousel-vertical rounded-box">
                         <div className="carousel-item w-full h-full">
                             <img src="https://i.ibb.co/L9wKCFY/apple-laptop-11zon.jpg" />
                         </div>
@@ -38,7 +38,7 @@ const AllProduct = () => {
 
                 <div>
 
-                <div className="h-96 w-[350px] carousel carousel-vertical rounded-box">
+                <div className="h-96  carousel carousel-vertical rounded-box">
                         <div className="carousel-item w-full h-full">
                             <img src="https://i.ibb.co/SnsbPNJ/apple-phone-11zon.jpg" />
                         </div>
@@ -64,7 +64,7 @@ const AllProduct = () => {
 
                 <div>
 
-                <div className="h-96 w-[350px] carousel carousel-vertical bg-black rounded-box">                       
+                <div className="h-96  carousel carousel-vertical bg-black rounded-box">                       
                         <div className="carousel-item w-full h-full">
                             <img src="https://i.ibb.co/23949jb/sony-refrigerator-11zon.jpg" />
                         </div>

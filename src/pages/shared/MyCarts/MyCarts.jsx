@@ -37,7 +37,7 @@ const MyCarts = () => {
             const info={id,email}
 
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/carts`, {
+                fetch(`https://brand-shop-server-side-3276vx317-meghlas-projects.vercel.app/carts`, {
                     method: 'DELETE',
                     headers:{
                         "content-type":"application/json"
@@ -56,7 +56,7 @@ const MyCarts = () => {
                             console.log("djlkgdg",carts,id)
                             console.log(carts[0].id,id)
                             
-                                fetch("http://localhost:5000/carts")
+                                fetch("https://brand-shop-server-side-3276vx317-meghlas-projects.vercel.app/carts")
                                 .then(res=>res.json())
                                 .then(data=>{
                                     console.log(data)

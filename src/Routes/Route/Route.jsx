@@ -41,17 +41,17 @@ const router = createBrowserRouter([
         {
           path:"/details/:id",
           element:<PrivateRoute><Details></Details></PrivateRoute>,
-          loader:()=>fetch("http://localhost:5000/products")
+          loader:()=>fetch("https://brand-shop-server-side-3276vx317-meghlas-projects.vercel.app/products")
         },
         {
           path:"/myCart",
           element:<PrivateRoute><MyCarts></MyCarts></PrivateRoute>,
-          loader:()=>fetch("http://localhost:5000/carts")
+          loader:()=>fetch("https://brand-shop-server-side-3276vx317-meghlas-projects.vercel.app/carts")
         },
         {
           path:"/updateProduct/:id",
           element:<PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/updateProducts/${params.id}`)
+          loader:({params})=>fetch(`https://brand-shop-server-side-3276vx317-meghlas-projects.vercel.app/updateProducts/${params.id}`)
         }
         
   

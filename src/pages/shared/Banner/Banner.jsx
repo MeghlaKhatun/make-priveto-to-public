@@ -1,7 +1,7 @@
 
 const Banner = () => {
     return (
-        <div className="hero h-[250px] md:h-[400px]  lg:h-[800px] w-full bg-cover bg-no-repeat mt-10 " style={{ backgroundImage: 'url(https://i.ibb.co/hsxFfGy/banner-11zon.png)' }}>
+        <div className="hero h-[250px] md:h-[400px] px-8 md:px-0  lg:h-[800px] w-full bg-cover bg-no-repeat mt-10 " style={{ backgroundImage: 'url(https://i.ibb.co/hsxFfGy/banner-11zon.png)' }}>
             <div className=" py-8"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="">

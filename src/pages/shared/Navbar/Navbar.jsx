@@ -8,6 +8,21 @@ const Navbar = () => {
 
     const { user, LogOut } = useContext(AuthContext)
 
+    // const [theme,setTheme]=useState("light-theme")
+    // useEffect(()=>{
+    //     document.body.className=theme;
+    //     if(theme==="dark-theme"){
+    //         setTheme("light-theme")
+    //     }else{
+    //         setTheme("dark-theme")
+    //     }
+
+    // },[])
+
+    const handleTheme=()=>{
+        alert("hi")
+    }
+
 
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -37,7 +52,7 @@ const Navbar = () => {
 
                         <ul tabIndex={0} className="menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             {navLinks}
-                            
+
                         </ul>
 
 
@@ -56,19 +71,20 @@ const Navbar = () => {
 
                 <nav className="navbar-center hidden lg:flex">
 
-                    <div className="flex justify-between items-center gap-20">
+                    <div className="flex justify-between items-center">
 
-                    <ul className=" menu-horizontal flex gap-6 text-white font-medium text-[18px]">
-                        {navLinks}
-                        
-                    </ul>
+                        <ul className=" menu-horizontal flex gap-6 text-white font-medium text-[18px]">
+                            {navLinks}
 
-                </div>
+                        </ul>
+
+                    </div>
 
 
 
                 </nav>
                 <div className="navbar-end">
+
 
                     <div className="flex flex-col-reverse justify-center lg:flex-row mr-2 lg:gap-4 items-center">
 
@@ -86,7 +102,6 @@ const Navbar = () => {
                         </div>
                     </div>
 
-
                     {
                         user ?
                             <div >
@@ -98,6 +113,20 @@ const Navbar = () => {
                                 <Link to="/login" className="py-2 px-4  bg-red-700 text-white font-medium md:font-semibold text-[14px] md:text-[16px] lg:text-[18px] rounded-lg">Login</Link>
                             </div>
                     }
+
+
+                    {/* toggle */}
+
+
+                    <div>
+
+                        <button onClick={()=>handleTheme()} className="text-white font-xl">
+                            dark
+                            
+                          </button>
+
+                    </div>
+                    {/* toggle */}
 
 
                 </div>
