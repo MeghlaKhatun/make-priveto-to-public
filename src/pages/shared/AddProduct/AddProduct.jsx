@@ -23,7 +23,7 @@ const AddProduct = () => {
 
 
         //product add server side
-        fetch("https://brand-shop-server-side-3276vx317-meghlas-projects.vercel.app/products",{
+        fetch("https://brand-shop-server-side-di7hjzh49-meghlas-projects.vercel.app/products",{
             method:"POST",
             headers:{
                 "content-type":"application/json"

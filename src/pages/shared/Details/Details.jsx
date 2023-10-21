@@ -19,7 +19,7 @@ const Details = () => {
     const handleAddToCart=()=>{
 
     
-    fetch("https://brand-shop-server-side-3276vx317-meghlas-projects.vercel.app/carts",{
+    fetch("https://brand-shop-server-side-di7hjzh49-meghlas-projects.vercel.app/carts",{
         method:"PUT",
         headers:{
             "content-type":"application/json"

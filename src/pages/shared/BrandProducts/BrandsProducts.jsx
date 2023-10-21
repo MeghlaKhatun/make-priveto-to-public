@@ -10,7 +10,7 @@ const BrandsProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`https://brand-shop-server-side-3276vx317-meghlas-projects.vercel.app/products/${brandName}`)
+        fetch(`https://brand-shop-server-side-di7hjzh49-meghlas-projects.vercel.app/products/${brandName}`)
             .then(res => res.json())
             .then(data => {
                 // const filtered = data.filter(slide => slide.brandName == brand);

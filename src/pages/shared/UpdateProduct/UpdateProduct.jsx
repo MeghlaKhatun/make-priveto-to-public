@@ -27,7 +27,7 @@ const UpdateProduct = () => {
 
 
         //product add server side
-        fetch(`https://brand-shop-server-side-3276vx317-meghlas-projects.vercel.app/updateProducts/${_id}`,{
+        fetch(`https://brand-shop-server-side-di7hjzh49-meghlas-projects.vercel.app/updateProducts/${_id}`,{
             method:"PUT",
             headers:{
                 "content-type":"application/json"
