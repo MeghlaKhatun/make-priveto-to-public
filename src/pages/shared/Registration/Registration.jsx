@@ -19,6 +19,7 @@ const Registration = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const profile=form.profile.value
         const term = form.terms.checked;
 
         console.log(name, email, password, term)
@@ -57,7 +58,7 @@ const Registration = () => {
                   //updateProfile
                   updateProfile(result.user,{
                     displayName:name,
-                    photoURL:"https://i.ibb.co/PxP4X7d/user.png"
+                    photoURL:profile,
                   })
                   .then(()=>console.log("profile updated"))
                   .catch()
@@ -107,6 +108,14 @@ const Registration = () => {
                                 <span className="label-text text-white  text-[18px]">Email</span>
                             </label>
                             <input type="email" name="email" placeholder="Your Email" className="input input-bordered text-black" required />
+                        </div>
+
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-white  text-[18px]">Photo URL</span>
+                            </label>
+                            <input type="text" name="profile" placeholder="Photo URL" className="input input-bordered text-black" required />
                         </div>
 
                         <div className="form-control">
