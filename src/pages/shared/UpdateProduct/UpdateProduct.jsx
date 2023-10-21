@@ -1,6 +1,7 @@
 import { Rating } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import Swal from 'sweetalert2'
 
 
 const UpdateProduct = () => {
@@ -22,6 +23,7 @@ const UpdateProduct = () => {
         const ratting=form.ratting.value;
         const updatedProduct={name,brand_name,price,photo,type,description,ratting}
         console.log(updatedProduct)
+       
 
 
         //product add server side
@@ -35,6 +37,13 @@ const UpdateProduct = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
+            if(data.modifiedCount){
+                Swal.fire(
+                    'Update!',
+                    'Data Updated successful!',
+                    'success'
+                  )
+            }
             
         })
 
@@ -53,14 +62,14 @@ const UpdateProduct = () => {
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Product Name</span>
                         </label>
-                        <input type="text" name="name" defaultValue={name} placeholder="Your Name" className="input input-bordered" required />
+                        <input type="text" name="name" defaultValue={name} placeholder="Your Name" className="input input-bordered text-black" required />
                     </div>
 
                     <div className="form-control pt-2">
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Select Brand Name</span>
                         </label>
-                        <select name="brand_name" defaultValue={brand_name} className="input input-bordered" >
+                        <select name="brand_name" defaultValue={brand_name} className="input input-bordered text-black" >
                             <option value="apple">Apple</option>
                             <option value="samsung">Samsung</option>
                             <option value="sony">Sony</option>
@@ -75,21 +84,21 @@ const UpdateProduct = () => {
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Price</span>
                         </label>
-                        <input type="text" name="price" defaultValue={price} placeholder="Price" className="input input-bordered" required />
+                        <input type="text" name="price" defaultValue={price} placeholder="Price" className="input input-bordered text-black" required />
                     </div>
 
                     <div className="form-control pt-2">
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Photo URL</span>
                         </label>
-                        <input type="text" name="photo" defaultValue={photo} placeholder="Photo URL" className="input input-bordered" required />
+                        <input type="text" name="photo" defaultValue={photo} placeholder="Photo URL" className="input input-bordered text-black" required />
                     </div>
 
                     <div className="form-control pt-2">
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Select Product Type</span>
                         </label>
-                        <select name="type" defaultValue={type} className="input input-bordered" >
+                        <select name="type" defaultValue={type} className="input input-bordered text-black" >
                             <option value="phone">Phone</option>
                             <option value="headphone">HeadPhone</option>
                             <option value="television">Television</option>
@@ -106,7 +115,7 @@ const UpdateProduct = () => {
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Short Description</span>
                         </label>
-                        <textarea name="description" defaultValue={description} id="" cols="30" rows="5" className="border-2 rounded-lg"></textarea>
+                        <textarea name="description" defaultValue={description} id="" cols="30" rows="5" className="border-2 rounded-lg text-black"></textarea>
                     </div>
 
                     <div className="form-control pt-2">

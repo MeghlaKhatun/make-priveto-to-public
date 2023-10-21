@@ -59,14 +59,14 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Product Name</span>
                         </label>
-                        <input type="text" name="name" placeholder="Your Name" className="input input-bordered" required />
+                        <input type="text" name="name" placeholder="Your Name" className="input input-bordered text-black" required />
                     </div>
 
                     <div className="form-control pt-2">
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Select Brand Name</span>
                         </label>
-                        <select name="brand_name" className="input input-bordered" >
+                        <select name="brand_name" className="input input-bordered text-black" >
                             <option value="apple">Apple</option>
                             <option value="samsung">Samsung</option>
                             <option value="sony">Sony</option>
@@ -81,21 +81,21 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Price</span>
                         </label>
-                        <input type="text" name="price" placeholder="Price" className="input input-bordered" required />
+                        <input type="text" name="price" placeholder="Price" className="input input-bordered text-black" required />
                     </div>
 
                     <div className="form-control pt-2">
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Photo URL</span>
                         </label>
-                        <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered" required />
+                        <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered text-black" required />
                     </div>
 
                     <div className="form-control pt-2">
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Select Product Type</span>
                         </label>
-                        <select name="type" className="input input-bordered" >
+                        <select name="type" className="input input-bordered text-black" >
                             <option value="phone">Phone</option>
                             <option value="headphone">HeadPhone</option>
                             <option value="television">Television</option>
@@ -112,7 +112,7 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text font-semibold text-white text-[16px] md:text-[18px]">Short Description</span>
                         </label>
-                        <textarea name="description" id="" cols="30" rows="5" className="border-2 rounded-lg"></textarea>
+                        <textarea name="description" id="" cols="30" rows="5" className="border-2 rounded-lg text-black"></textarea>
                     </div>
 
                     <div className="form-control pt-2">

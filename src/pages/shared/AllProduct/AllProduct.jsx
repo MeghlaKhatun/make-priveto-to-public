@@ -4,7 +4,7 @@ const AllProduct = () => {
     return (
         <div className="max-w-7xl mx-auto">
             <div className=" my-4 md:my-8 lg:my-12">
-                <h2 className="text-center bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-700 text-2xl md:text-3xl lg:text-5xl  font-extrabold italic">Product collection</h2>
+                <h2 className="text-center bg-clip-text text-transparent dark:text-white bg-gradient-to-r from-black to-gray-700 text-2xl md:text-3xl lg:text-5xl  font-extrabold italic">Product collection</h2>
                 <p className="text-[16px] font-semibold w-full px-4 md:px-0 md:w-1/2 text-center mx-auto mt-2">The term electronic and information technology includes, but is not limited to, telecommunications products (such as telephones), information kiosks and transaction machines, World Wide Web sites, multimedia, and office equipment such as copiers and fax machines.</p>
             </div>
 

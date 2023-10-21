@@ -13,9 +13,9 @@ function MyCart({ cart ,handleDelete}) {
                     <img src={photo} alt="" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center ">
-                    <h2 className="card-title font-bold text-2xl">{brand_name}</h2>             
-                    <h2 className="card-title font-semibold text-[18px]">Type: {type}</h2>     
-                    <p className='font-medium text-[15px] text-center'>{description}</p>
+                    <h2 className="card-title font-bold text-2xl text-black">{brand_name}</h2>             
+                    <h2 className="card-title font-semibold text-[18px] text-black">Type: {type}</h2>     
+                    <p className='font-medium text-[15px] text-center text-black'>{description}</p>
 
                    
                     <div className="card-actions">

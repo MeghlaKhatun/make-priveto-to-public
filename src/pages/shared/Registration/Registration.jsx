@@ -97,7 +97,7 @@ const Registration = () => {
                             <label className="label">
                                 <span className="label-text text-white  text-[18px]">Name</span>
                             </label>
-                            <input type="text" name="name" placeholder="Your Name" className="input input-bordered" required />
+                            <input type="text" name="name" placeholder="Your Name" className="input input-bordered text-black" required />
                         </div>
 
 
@@ -106,14 +106,14 @@ const Registration = () => {
                             <label className="label">
                                 <span className="label-text text-white  text-[18px]">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="Your Email" className="input input-bordered" required />
+                            <input type="email" name="email" placeholder="Your Email" className="input input-bordered text-black" required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-white text-[18px]">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                            <input type="password" name="password" placeholder="password" className="input input-bordered text-black" required />
                         </div>
 
                         <div className="my-4 flex gap-2">

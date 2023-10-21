@@ -54,7 +54,7 @@ const Details = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="hero max-w-5xl mx-auto my-20 px-8 lg:px-0 ">
+            <div className="hero max-w-5xl mx-auto py-10 md:py-20 px-8 lg:px-0 ">
                 <div className="hero-content px-8  py-8 flex-col lg:flex-row-reverse bg-gradient-to-r from-gray-400 to-gray-600 hover:shadow-2xl">
                     <div className=" ">
                         <img  src={photo} className=" lg:h-[250px]  lg:w-[500px] rounded-lg shadow-2xl" />

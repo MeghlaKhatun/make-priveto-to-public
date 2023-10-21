@@ -61,10 +61,10 @@ const BrandsProducts = () => {
             {/* end slider */}
 
 
-            <div className="bg-gradient-to-r from-black to-gray-700 py-20">
+            <div className="bg-gradient-to-r from-black to-gray-700 ">
 
 
-                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 py-20 px-8 lg:px-0 gap-6">
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 py-8 md:py-16 lg:py-20 px-8 lg:px-0 gap-6">
                     {
                         products?.map(product => <BrandProduct key={product._id} product={product}></BrandProduct>)
                     }
