@@ -18,7 +18,7 @@ const MyCarts = () => {
         setCards(filtered)
         console.log(filtered)
 
-    }, [])
+    }, [carts,user.email])
 
 
     const handleDelete = (id) => {

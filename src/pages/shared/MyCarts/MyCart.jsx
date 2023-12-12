@@ -1,13 +1,20 @@
 import PropTypes from 'prop-types'
+import { useEffect } from 'react';
 import {FaTrashAlt } from "react-icons/fa";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function MyCart({ cart ,handleDelete}) {
 
     const {id, photo, brand_name, description,type } = cart;
-
+    useEffect(() => {
+        AOS.init({ duration: 2000 })
+    }, [])
 
     return (
-        <div className=''>
+        <div  data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000" className=''>
             <div className="card  h-[500px] bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={photo} alt="" className="rounded-xl" />
